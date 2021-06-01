@@ -8,7 +8,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-text>Puedes utilizar cualquiera de las tarjetas que se muestran a
+        <ion-text
+          >Puedes utilizar cualquiera de las tarjetas que se muestran a
           continuación.
         </ion-text>
         <ion-img src="/assets/img/american-express.png" class="small"></ion-img>
@@ -17,7 +18,7 @@
         <ion-img src="/assets/img/visa.png" class="small"></ion-img>
       </ion-col>
     </ion-row>
-    <form [formGroup]="formulario">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit(formulario.value)">
       <ion-row>
         <ion-col>
           <ion-text>Número de tarjeta:</ion-text>
@@ -27,19 +28,31 @@
       <ion-row>
         <ion-col>
           <ion-text>Expira:</ion-text>
-          <ion-input type="text" placeholder="MM/AA" class="expira" formControlName="expira"></ion-input>
+          <ion-input
+            type="text"
+            placeholder="MM/AA"
+            class="expira"
+            formControlName="expira"
+          ></ion-input>
         </ion-col>
         <ion-col> </ion-col>
         <ion-col>
           <ion-text>CCV:</ion-text>
-          <ion-input type="password" maxlength="3" class="ccv" formControlName="ccv"></ion-input>
+          <ion-input
+            type="password"
+            maxlength="3"
+            class="ccv"
+            formControlName="ccv"
+          ></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-text>Tipo de tarjeta: </ion-text>
           <ion-select formControlName="tipo">
-            <ion-select-option *ngFor="let tipoTarjeta of tiposTarjeta">{{tipoTarjeta}}</ion-select-option>
+            <ion-select-option *ngFor="let tipoTarjeta of tiposTarjeta"
+              >{{tipoTarjeta}}</ion-select-option
+            >
           </ion-select>
         </ion-col>
         <ion-col> </ion-col>
@@ -56,10 +69,17 @@
       <ion-row>
         <ion-col> </ion-col>
         <ion-col>
-          <ion-button color="danger" class="botonBorrar" (click)="clickBorrar()">Borrar</ion-button>
+          <ion-button color="danger" class="botonBorrar" (click)="clickBorrar()"
+            >Borrar</ion-button
+          >
         </ion-col>
         <ion-col>
-          <ion-button color="success" class="submit-btn" [disabled]="!formulario.valid" type="submit">Aceptar
+          <ion-button
+            color="success"
+            class="submit-btn"
+            [disabled]="!formulario.valid"
+            type="submit"
+            >Aceptar
           </ion-button>
         </ion-col>
       </ion-row>

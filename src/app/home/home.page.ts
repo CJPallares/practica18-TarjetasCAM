@@ -45,7 +45,7 @@ this.formulario = this.formBuilder.group({
     ])),
     tipo: new FormControl('', Validators.required),
     clientePromocional : new FormControl('' , Validators.required),
-    //tipoTarjeta: new FormControl(this.tiposTarjeta[0], Validators.required)
+    tipoTarjeta: new FormControl(this.tiposTarjeta[0], Validators.required) //estaba comentado ¿?
 });
 }
 
@@ -57,6 +57,15 @@ onSubmit(values){
       }
     };
     this.navCtrl.navigateForward('/pagina2', navigationExtras);
+  }
+
+  clickBorrar(){
+    this.formulario.controls['numTarjeta'].setValue('');
+    this.formulario.controls['expira'].setValue('');
+    this.formulario.controls['ccv'].setValue('');
+    this.formulario.controls['numTarjeta'].setValue('');
+    this.formulario.controls['tipo'].setValue('');
+    this.formulario.controls['clientePromocional'].setValue(false);
   }
   
 }//final de clase
